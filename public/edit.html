@@ -1,0 +1,34 @@
+<h2>Edit</h2>
+<ul class="container pull-left">
+	<li>
+	<label for="title"><strong>Title</strong></label>
+	<input type="text" id="title" ng-model="book.title"/>
+	</li>
+
+	<li>
+	<label for="author"><strong>Author Forename(s)</strong></label>
+	<input type="text" id="author" ng-model="book.authorfirstname"/>
+	</li>
+
+	<li>
+	<label for="author"><strong>Author Surname(s)</strong></label>
+	<input type="text" id="author" ng-model="book.authorlastname"/>
+	</li>
+
+	<li>
+	<label for="genre"><strong>Genre</strong></label>
+	<input type="text" id="genre" ng-model="book.genre"/>
+	</li>
+
+	<li>
+	<label for="country"><strong>Country</strong></label>
+	<input type="text" id="country" ng-model="book.country"/>
+	</li>
+</ul>
+
+<div class="container"><img ng-src="{{book.img}}"></div>
+<br />
+<a href="#/delete/{{index}}" class="btn btn-danger">Delete</a>
+
+<a href="#/" class="btn btn-primary">Back to list</a>
+

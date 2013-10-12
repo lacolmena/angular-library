@@ -1,0 +1,26 @@
+<h1>Books</h1>
+
+<!--     <label for="search">Search:</label>
+   <input type="search" ng-model="search"/> -->
+    <label for="sort">Sort by:</label>
+    <select ng-model="order">
+    <option value="authorlastname">Author (surname)</option>
+    <option value="title">Title</option>
+    </select>
+
+<ul>
+	<li ng-repeat="book in books | filter:search | orderBy:order" class="thumbnail" id="booklist">
+		<a href="#/book/{{book.id}}" class="thumb"></a>
+		<a href="#/book/{{book.id}}"><strong>{{book.authorfirstname}} {{book.authorlastname}}</strong> &#8212; <em>{{book.title}}</em></a>
+	</li>
+</ul>
+
+<a href="#/add" class="btn btn-primary">Add new book</a>
+<!--
+    <div id="details" class="container pull-right" ng-controller="DetailsController">
+        <h2>Details</h2>
+
+        <img src="img/{{book.id}}.jpg" />
+
+    </div>
+-->    

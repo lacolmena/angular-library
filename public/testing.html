@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html ng-app>
+<meta charset="utf-8">
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font: 16px/1.5 sans-serif;
+            color: #222;
+            margin: 5em;
+        }
+        .first-true {
+            background-color: red;
+        }
+        .browser {box-shadow: 0 2.5em 2.5em rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);}
+        .url {background: #eee; padding: 0.444em 0.5em;}
+        .url input {width: 85%;}
+        .url label {display: inline-block; width: 14%; font-size: 0.667em;}
+        .page {border: 1px solid #eee; padding: 2.5em; min-height: 15em;}
+        .page input {width: 100%;}
+    </style>
+</head>
+<body>
+
+    <div>
+        <label>Name</label><input type="text" ng-model="name">
+    </div>
+
+    <div>
+        <input type="checkbox" ng-model="checked"><label>Hide?</label>
+    </div>
+
+    <div ng-hide="checked">
+        Hello, {{name || "world"}}!
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <input type="search" ng-model="search"/>
+    </div>
+
+    <div ng-controller="List">
+        <ul>
+            <li ng-repeat="person in people | filter:search">
+                {{person.name}} : {{person.age}}
+                <button ng-click="remove($index)" class="first-{{$first}}">x</button>
+                <span ng-show="$first">First!</span>
+                <span ng-show="$last">Last!</span>
+                <span ng-show="$middle">Middle!</span>
+            </li>
+        </ul>
+
+        <span>There are {{people.length}} people in the list.</span>
+
+        <div>
+            <label>Name: </label><input ng-model="new_name">
+            <br>
+            <label>Age: </label><input type="number" ng-model="new_age">
+            <br>
+            <button ng-click="add()">Add</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="browser" ng-controller="Browser">
+        <div class="url">
+            <label for="url">&larr; &rarr; &infin;</label>
+            <input value="edit/{{path}}"/>
+        </div>
+
+        <div class="page">
+            <label>Update the URL:</label>
+            <input ng-change="clean()" ng-model="path">
+        </div>
+    </div>
+
+    <hr>
+
+    <div ng-controller="Contacts">
+        <div>
+            <input type="search" ng-model="search"/>
+        </div>
+
+        <select ng-model="selected_person"
+                ng-options="person.name for person in people | filter:search">
+            <option value="">Choose a person:</option>
+        </select>
+
+        <hr>
+
+        <div>
+            <label>Name:</label><input ng-model="selected_person.name"/>
+            <br>
+            <label>Number:</label><input ng-model="selected_person.number"/>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var List = function ($scope) {
+            $scope.people = [
+                {name: "Matthew", age: 29},
+                {name: "Cristina", age: 29},
+                {name: "Laura", age: 25}
+            ];
+
+            $scope.add = function() {
+                $scope.people.push({
+                    name: $scope.new_name,
+                    age: $scope.new_age
+                });
+                $scope.new_name = "";
+                $scope.new_age = "";
+            };
+
+            $scope.remove = function(index) {
+                $scope.people.splice(index, 1);
+            };
+        };
+
+        var Browser;
+        Browser = function ($scope) {
+            $scope.clean = function () {
+                $scope.path = $scope.path
+                        .replace(/\s/, '-')
+                        .replace(/[^a-z0-9-]/i, '');
+            };
+        };
+
+        var Contacts = function ($scope) {
+            $scope.people = [
+                {name: "Matthew", number: "123456789"},
+                {name: "Cristina", number: "987654321"},
+                {name: "Laura", number: "456123987"}
+            ]
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+[
+		{
+            "id": 0,
+            "title": "Doctor Faustus",
+            "authorfirstname": "Thomas",
+            "authorlastname": "Mann",
+            "genre": "Fiction",
+            "country": "Germany",
+            "img": "img/0.jpg"
+        },
+        {
+            "id": 1,
+            "title": "Gargoyles",
+            "authorfirstname": "Thomas",
+            "authorlastname": "Bernhard",
+            "genre": "Fiction",
+            "country": "Austria",
+            "img": "img/1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Perfume",
+            "authorfirstname": "Patrick",
+            "authorlastname": "Suskind",
+            "genre": "Fiction",
+            "country": "Germany",
+            "img": "img/2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "First Love and Other Novellas",
+            "authorfirstname": "Samuel",
+            "authorlastname": "Beckett",
+            "genre": "Fiction",
+            "country": "Ireland",
+            "img":""
+        },
+        {
+            "id": 4,
+            "title": "And Where Were You, Adam?",
+            "authorfirstname": "Heinrich",
+            "authorlastname": "Boll",
+            "genre": "Fiction",
+            "country": "Germany",
+            "img": ""
+        },
+        {
+            "id": 5,
+            "title": "Beneath the Underdog",
+            "authorfirstname": "Charles",
+            "authorlastname": "Mingus",
+            "genre": "Fiction",
+            "country": "USA",
+            "img": ""
+        }
+]
